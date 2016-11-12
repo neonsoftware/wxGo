@@ -10,7 +10,7 @@ go:
 
 os:
   - linux
-  - osx
+#  - osx
 
 matrix:
   allow_failures:
@@ -40,4 +40,5 @@ script:
   - g++ --version
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ld --version; fi
   - travis_wait 50 go get -t -v -x ./...
+  - travis_wait 50 GOARCH=386 go get -t -v -x ./...
   
